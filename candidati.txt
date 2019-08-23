@@ -1,0 +1,5 @@
+[
+Candidat{nume='Pop', prenume='Ionut', nivelDeCompetenta=10, numeDepartament='Marketing', statusCandidat=ACCEPTAT}, 
+Candidat{nume='Pop', prenume='Andreea', nivelDeCompetenta=1, numeDepartament='Productie', statusCandidat=RESPINS}, 
+Candidat{nume='Popescu', prenume='Ana', nivelDeCompetenta=7, numeDepartament='Productie', statusCandidat=ACCEPTAT}, 
+Candidat{nume='Popovici', prenume='Andrei', nivelDeCompetenta=3, numeDepartament='HR', statusCandidat=IN_ASTEPTARE}]

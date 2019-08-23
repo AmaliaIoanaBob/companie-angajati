@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,22 +24,48 @@ public class Main {
         Candidat candidat3 = new Candidat("Popescu", "Ana", 7, "Productie");
         Candidat candidat4 = new Candidat("Popovici", "Andrei", 3, "HR");
 
-        List<Candidat> candidati = new ArrayList<>();
+        List<Candidat> candidati = new ArrayList<Candidat>();
         candidati.add(candidat1);
         candidati.add(candidat2);
         candidati.add(candidat3);
         candidati.add(candidat4);
 
-        companie.setAngajati(candidati);
+        companie.setAngajati(candidati); //am setat lista de angajati in clasa companie
 
-        for (Candidat candidat : candidati) {
+
+
+        try {
+            companie.recruteaza();
+
+        } catch (IncapacitateEvaluare e) { //mereu cand am try trebuie sa am si catch
+
+
+            //scriere in fisier candidati dupa recrutare
+        }
+
+        writeCandidatesToTxtFile(companie.getAngajati()); // apelam metoda
+
+
+    }
+
+    public static void writeCandidatesToTxtFile(List<Candidat> candidates) {
+        BufferedWriter writer = null;
+        try {
+
+            writer = new BufferedWriter(new FileWriter("candidati.txt"));
+            writer.write(candidates.toString());
+        } catch (IOException e) {
+
+        } finally {
             try {
-                companie.recruteaza(candidat);
-            } catch (IncapacitateEvaluare e) {
-                System.out.println("Exceptie prinsa!");
-            }
-                System.out.println(candidat.getStatusCandidat());
+                writer.close(); // fisierul vrem sa il inchidem il mai inconjuram inca o data de un try and catch
+            } catch (IOException e) {
             }
         }
+
     }
+}
+
+
+
 

@@ -55,4 +55,17 @@ public class Candidat {
     public void setNumeDepartament(String numeDepartament) {
         this.numeDepartament = numeDepartament;
     }
+
+    @Override
+    public String toString() {
+        return "\nCandidat{" +
+                "nume='" + nume + '\'' +
+                ", prenume='" + prenume + '\'' +
+                ", nivelDeCompetenta=" + nivelDeCompetenta +
+                ", numeDepartament='" + numeDepartament + '\'' +
+                ", statusCandidat=" + statusCandidat +
+                '}';
+    }
 }
+
+

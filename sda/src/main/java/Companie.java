@@ -37,18 +37,20 @@ public class Companie {
     }
 
     //to be implemented
-    public void recruteaza(Candidat candidat) {
-        if (candidat.getNumeDepartament().equalsIgnoreCase("Marketing")) {
-           Marketing m = new Marketing();
-          StatusCandidat status = m.evalueaza(candidat);
-          candidat.setStatusCandidat(status);
-        } else if (candidat.getNumeDepartament().equalsIgnoreCase("Productie")) {
-            Productie p = new Productie();
-            StatusCandidat status = p.evalueaza(candidat);
-            candidat.setStatusCandidat(status);
-        } else {
-            //aruncam exceptie(intai trebuie creata)
-            throw new IncapacitateEvaluare("Candidatul nu poate fi evaluat.");
+    public void recruteaza() {
+        for (Candidat candidat : this.angajati) {
+            if (candidat.getNumeDepartament().equalsIgnoreCase("Marketing")) {
+                Marketing m = new Marketing();
+                StatusCandidat status = m.evalueaza(candidat);
+                candidat.setStatusCandidat(status);
+            } else if (candidat.getNumeDepartament().equalsIgnoreCase("Productie")) {
+                Productie p = new Productie();
+                StatusCandidat status = p.evalueaza(candidat);
+                candidat.setStatusCandidat(status);
+            } else {
+                //aruncam exceptie(intai trebuie creata)
+                throw new IncapacitateEvaluare("Candidatul nu poate fi evaluat.");
+            }
         }
     }
 }
